@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nadis Capital | Investment Management Firm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <div class="hidden md:block">
+            <div class="mr-10 flex items-center space-x-8">
+              <a
+                href="#"
+                class="nav-link text-blue-600 font-medium hover:text-blue-800 transition"
+                data-section="home"
+                >Home</a
+              >
+              <a
+                href="#about"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
+                data-section="about"
+                >About</a
+              >
+              <div class="relative group">
+                <button
+                  class="nav-link text-gray-600 hover:text-blue-600 font-medium transition flex items-center"
+                >
+                  Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <div
+                  class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                >
+                  <a
+                    href="#services?service=all"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="all"
+                    >All Services</a
+                  >
+                  <a
+                    href="#services?service=investment-decisions"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="investment-decisions"
+                    >Investment Decisions</a
+                  >
+                  <a
+                    href="#services?service=investment-management"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="investment-management"
+                    >Investment Management</a
+                  >
+                  <a
+                    href="#services?service=investment-advisory"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="investment-advisory"
+                    >Investment Advisory</a
+                  >
+                  <a
+                    href="#services?service=investment-fund"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="investment-fund"
+                    >Investment Fund</a
+                  >
+                  <a
+                    href="#services?service=wealth-management"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    data-service="wealth-management"
+                    >Wealth Management</a
+                  >
+                </div>
+              </div>
+              <a
+                href="#contact"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
+                data-section="contact"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <div class="flex-shrink-0 flex items-center">
+            <div
+              class="logo-container h-12 w-12 rounded-lg flex items-center justify-center text-white font-bold text-xl transform hover:rotate-6 transition duration-300"
+            >
+              <span class="script-bold">N</span>
+            </div>
+            <span class="ml-3 text-2xl font-semibold text-blue-800 script-bold"
+              >Nadis Capital</span
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-600 hover:text-blue-600 focus:outline-none"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-lg absolute w-full z-50"
+      >
+        <div class="px-4 pt-2 pb-4 space-y-2">
+          <a
+            href="#"
+            class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:bg-blue-50"
+            data-section="home"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+            data-section="about"
+            >About</a
+          >
+          <div class="px-3 py-2">
+            <button
+              onclick="toggleMobileServices()"
+              class="w-full text-left flex justify-between items-center text-base font-medium text-gray-600 hover:bg-blue-50 rounded-md px-3 py-2"
+            >
+              Services
+              <i
+                id="mobile-services-icon"
+                class="fas fa-chevron-down ml-1 text-xs transition-transform"
+              ></i>
+            </button>
+            <div id="mobile-services-menu" class="hidden pl-4 mt-1 space-y-1">
+              <a
+                href="#services?service=all"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="all"
+                >All Services</a
+              >
+              <a
+                href="#services?service=investment-decisions"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="investment-decisions"
+                >Investment Decisions</a
+              >
+              <a
+                href="#services?service=investment-management"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="investment-management"
+                >Investment Management</a
+              >
+              <a
+                href="#services?service=investment-advisory"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="investment-advisory"
+                >Investment Advisory</a
+              >
+              <a
+                href="#services?service=investment-fund"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="investment-fund"
+                >Investment Fund</a
+              >
+              <a
+                href="#services?service=wealth-management"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+                data-service="wealth-management"
+                >Wealth Management</a
+              >
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+            data-section="contact"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white min-h-screen flex items-center">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full text-center"
+      >
+        <div class="fade-in mx-auto max-w-3xl">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+          >
+            Building Wealth,
+            <span class="gradient-text">Securing Futures</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90">
+            Your trusted partner in achieving financial well-being through
+            strategic investment management.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="#services"
+              class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300 glow-on-hover"
+              >Our Services</a
+            >
+            <a
+              href="#contact"
+              class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300 glow-on-hover"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 relative overflow-hidden">
+      <div
+        class="absolute -left-20 top-1/4 w-60 h-60 rounded-full bg-blue-100 opacity-40"
+      ></div>
+      <div
+        class="absolute right-0 bottom-0 w-80 h-80 bg-indigo-100 opacity-20 rounded-tl-full"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4">About Us</h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We are an investment management firm dedicated to helping everybody
+            achieve financial well-being. Our purpose is to build investments
+            that serve our clients throughout their lives.
+          </p>
+        </div>
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-semibold text-blue-800 mb-4">
+            Who We Serve
+          </h3>
+          <div class="w-16 h-1 bg-blue-500 mx-auto mb-2"></div>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8">
+          <div
+            class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+          >
+            <div class="text-blue-600 mb-4">
+              <i class="fas fa-user text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Individuals</h3>
+            <p class="text-gray-600">
+              Helping individuals to invest long term and to achieve financial
+              well-being.
+            </p>
+          </div>
+          <div
+            class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+          >
+            <div class="text-blue-600 mb-4">
+              <i class="fas fa-users text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Families</h3>
+            <p class="text-gray-600">
+              Helping families manage their wealth across generations.
+            </p>
+          </div>
+          <div
+            class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+          >
+            <div class="text-blue-600 mb-4">
+              <i class="fas fa-dollar-sign text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">High Value Investors</h3>
+            <p class="text-gray-600">
+              Optimizing returns on your investments with tailored strategies
+              for high-net-worth individuals.
+            </p>
+          </div>
+          <div
+            class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+          >
+            <div class="text-blue-600 mb-4">
+              <i class="fas fa-briefcase text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Institutions</h3>
+            <p class="text-gray-600">
+              Helping organisations invest part of their profit for future
+              financial freedom.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4">Our Services</h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive financial solutions tailored to your unique needs and
+            goals.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Investment Decisions -->
+          <div
+            id="investment-decisions"
+            data-service="investment-decisions"
+            class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 service-card transition duration-300 transform hover:scale-[1.02]"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-gradient-to-br from-blue-100 to-indigo-100 p-3 rounded-lg mr-4 shadow-md hover:shadow-lg transition duration-300"
+              >
+                <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Investment Decisions</h3>
+            </div>
+            <p class="text-gray-600">
+              We help in evaluating profitable investment opportunities with
+              thorough market analysis and risk assessment.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('investment-decisions')"
+              >
+                Learn More
+                <i
+                  id="investment-decisions-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="investment-decisions"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  Our team of experts conducts comprehensive market research and
+                  due diligence to identify the most promising investment
+                  opportunities. We analyze market trends, financial statements,
+                  and economic indicators to provide you with data-driven
+                  recommendations.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Investment Management -->
+          <div
+            class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-hand-holding-usd text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Investment Management</h3>
+            </div>
+            <p class="text-gray-600">
+              We invest on behalf of our clients and provide continuous
+              monitoring of your investment portfolio with expert advice.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('investment-management')"
+              >
+                Learn More
+                <i
+                  id="investment-management-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="investment-management"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  This option is for those who want to invest under their names
+                  but needs the help of the firm in monitoring the investment
+                  portfolio, advising on when to reallocate the funds, giving
+                  feedback on the developments on their investments and the
+                  developments in the investment industry. Our team provides
+                  regular performance reports and adjusts your portfolio based
+                  on changing market conditions and your evolving financial
+                  goals.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Investment Advisory -->
+          <div
+            class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-comments-dollar text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Investment Advisory</h3>
+            </div>
+            <p class="text-gray-600">
+              Tailored financial advice and investment recommendations to help
+              you grow and protect your wealth effectively.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('investment-advisory')"
+              >
+                Learn More
+                <i
+                  id="investment-advisory-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="investment-advisory"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  We provide financial advice and make investment
+                  recommendations to our clients, primarily focusing on
+                  investments and wealth management, helping clients manage and
+                  grow their wealth. We develop tailored investment strategies
+                  based on individual financial goals, such as retirement,
+                  education savings or long-term growth. We specialise in
+                  helping clients build tailored investment plans designed to
+                  strategically grow and protect your wealth. By working closely
+                  with our clients, we analyse your financial goals and
+                  timelines to craft personalized strategies.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Investment Fund -->
+          <div
+            class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-piggy-bank text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Investment Fund</h3>
+            </div>
+            <p class="text-gray-600">
+              We pool money from multiple investors to purchase diversified
+              assets, aiming to generate optimal returns for our clients.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('investment-fund')"
+              >
+                Learn More
+                <i
+                  id="investment-fund-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="investment-fund"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  This applies to those who want the firm to invest their money
+                  on their behalf. We pool money from multiple investors to
+                  purchase a diversified portfolio of assets. We oversee these
+                  investments, with the aim of generating best returns for our
+                  clients. We invest in Government securities, in fast growing
+                  profitable private companies, stock exchange and other
+                  relevant investments. Under this option, you benefit from the
+                  growth in the valuation of the investments at the point of
+                  exit from the fund and or from the regular profit sharing.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Wealth Management -->
+          <div
+            class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-landmark text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Wealth Management</h3>
+            </div>
+            <p class="text-gray-600">
+              Comprehensive services including tax planning, estate planning,
+              retirement planning, and more to maximize your net worth.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('wealth-management')"
+              >
+                Learn More
+                <i
+                  id="wealth-management-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="wealth-management"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  We help maximise your net worth. This involves managing
+                  investments or assets portfolios along with tax planning,
+                  managing education planning, estate planning, legacy planning,
+                  insurance, retirement planning. Our holistic approach ensures
+                  all aspects of your financial life work together to achieve
+                  your long-term objectives while minimizing tax liabilities and
+                  protecting your assets for future generations.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Equity Investment -->
+          <div
+            class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Equity Investment</h3>
+            </div>
+            <p class="text-gray-600">
+              Become a shareholder of Nadis Capital and benefit from capital
+              gains and dividend payments as our company grows.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('equity-investment')"
+              >
+                Learn More
+                <i
+                  id="equity-investment-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="equity-investment"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  You can become a shareholder of Nadis Capital by buying the
+                  shares of Nadis Capital. Under this option, you benefit from
+                  the capital gains resulting from the growth in the value of
+                  Nadis Capital shares, at the time of disposal of your shares
+                  as well as the dividend payments. As a shareholder, you'll
+                  also have access to exclusive investor updates and
+                  opportunities to participate in special investment vehicles.
+                </p>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4">
+            Additional Services
+          </h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+        </div>
+      </div>
+      <div class ="bg-gray-50 rounded-xl p-6 service-card transition duration-300">
+        <div class="md:flex">
+          <div
+            class="md:w-1/3 bg-blue-600 flex items-center justify-center p-6"
+          >
+            <i class="fas fa-file-invoice-dollar text-white text-5xl"></i>
+          </div>
+          <div class="p-8 md:w-2/3">
+            <h3 class="text-xl font-semibold mb-3">Financial Management</h3>
+            <p class="text-gray-600 mb-4">
+              Comprehensive planning, organizing, and controlling of financial
+              resources to achieve your goals, including budgeting, risk
+              management, and financial reporting.
+            </p>
+            <div class="mt-4">
+              <button
+                class="learn-more-btn flex items-center text-blue-600 font-medium"
+                onclick="toggleExpand('financial-management')"
+              >
+                Learn More
+                <i
+                  id="financial-management-icon"
+                  class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="financial-management"
+                class="expandable-content mt-2 text-gray-600"
+              >
+                <p class="mt-2">
+                  Our services involve planning, organizing, directing, and
+                  controlling financial resources to achieve organizational or
+                  individual goals. It encompasses various activities, including
+                  budgeting, investment decisions, risk management, working
+                  capital management, financial reporting - Preparing and
+                  analysing financial statements to assess performance and make
+                  informed decisions. and ensuring financial stability and
+                  profitability. Effective financial management is crucial for
+                  both businesses and individuals to make informed decisions,
+                  optimize resource allocation, and achieve long-term financial
+                  well-being.
+                </p>
+              </div>
+            </div>
+          </div>
+          </div>
+            <!-- Equity Investment -->
+            <div
+              class="bg-gray-50 rounded-xl p-6 service-card transition duration-300"
+            >
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                  <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold">Financial Management</h3>
+              </div>
+              <p class="text-gray-600">
+                Become a shareholder of Nadis Capital and benefit from capital
+                gains and dividend payments as our company grows.
+              </p>
+              <div class="mt-4">
+                <button
+                  class="learn-more-btn flex items-center text-blue-600 font-medium"
+                  onclick="toggleExpand('equity-investments')"
+                >
+                  Learn More
+                  <i
+                    id="equity-investments-icon"
+                    class="fas fa-chevron-down ml-2 transition-transform duration-300"
+                  ></i>
+                </button>
+                <div
+                  id="equity-investments"
+                  class="expandable-content mt-2 text-gray-600"
+                >
+                  <p class="mt-2">
+                    You can become a shareholder of Nadis Capital by buying the
+                    shares of Nadis Capital. Under this option, you benefit from
+                    the capital gains resulting from the growth in the value of
+                    Nadis Capital shares, at the time of disposal of your shares
+                    as well as the dividend payments. As a shareholder, you'll
+                    also have access to exclusive investor updates and
+                    opportunities to participate in special investment vehicles.
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4">
+            Why Choose Nadis Capital
+          </h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our approach to investment management sets us apart
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
+            >
+              <i class="fas fa-bullseye text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Client-Centric Approach</h3>
+            <p class="text-gray-600">
+              We put your financial goals at the center of everything we do,
+              creating customized strategies that align with your unique needs.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
+            >
+              <i class="fas fa-chart-network text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Holistic Strategies</h3>
+            <p class="text-gray-600">
+              Our comprehensive approach considers all aspects of your financial
+              life, from investments to tax planning and legacy considerations.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify center text-white mb-6"
+            >
+              <i class="fas fa-shield-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Risk Management</h3>
+            <p class="text-gray-600">
+              We prioritize protecting your assets while seeking growth
+              opportunities, implementing robust risk management protocols.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
+            >
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Innovative Solutions</h3>
+            <p class="text-gray-600">
+              We leverage cutting-edge technology and market insights to
+              identify unique opportunities that drive superior returns.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
+            >
+              <i class="fas fa-handshake text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Long-Term Partnerships</h3>
+            <p class="text-gray-600">
+              We build enduring relationships with our clients, evolving our
+              strategies as your needs and market conditions change.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <div
+              class="feature-icon w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
+            >
+              <i class="fas fa-lock text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Transparency</h3>
+            <p class="text-gray-600">
+              We maintain open communication about our strategies, fees, and
+              performance, ensuring you're always informed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4">Contact Us</h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ready to start your journey to financial well-being? Get in touch
+            with our team today.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+          <div class="md:flex">
+            <div
+              class="md:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-12 relative overflow-hidden"
+            >
+              <div
+                class="absolute -right-20 -top-20 w-40 h-40 rounded-full bg-blue-500 opacity-20"
+              ></div>
+              <div
+                class="absolute -right-10 -bottom-10 w-60 h-60 rounded-full bg-indigo-500 opacity-20"
+              ></div>
+              <div class="relative z-10">
+                <h3 class="text-2xl font-bold mb-6">
+                  Let's Talk About Your Financial Goals
+                </h3>
+                <div class="space-y-6">
+                  <div class="flex items-start">
+                    <div class="mr-4 mt-1">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold">Our Office</h4>
+                      <p class="text-blue-100">
+                        Rainbow Tower, 5th Floor, Muthithi Road.<br />Nairobi,Kenya
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mr-4 mt-1">
+                      <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold">Phone</h4>
+                      <p class="text-blue-100">+254 721 499415</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mr-4 mt-1">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold">Email</h4>
+                      <p class="text-blue-100">info@nadiscapital.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-10">
+                  <h4 class="font-semibold mb-4">Follow Us</h4>
+                  <div class="flex space-x-4">
+                    <a
+                      href="https://www.linkedin.com/company/nadis-capital/"
+                      target="_blank"
+                      class="h-10 w-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition"
+                    >
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="h-10 w-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="h-10 w-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 p-12">
+              <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label
+                      for="first-name"
+                      class="block text-gray-700 font-medium"
+                      >First Name <span class="text-red-500">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="first-name"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      for="last-name"
+                      class="block text-gray-700 font-medium"
+                      >Last Name <span class="text-red-500">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="last-name"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label for="email" class="block text-gray-700 font-medium"
+                    >Email Address <span class="text-red-500">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label for="phone" class="block text-gray-700 font-medium"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label for="service" class="block text-gray-700 font-medium"
+                    >Service Interested In
+                    <span class="text-red-500">*</span></label
+                  >
+                  <select
+                    id="service"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="investment-decisions">
+                      Investment Decisions
+                    </option>
+                    <option value="investment-management">
+                      Investment Management
+                    </option>
+                    <option value="investment-advisory">
+                      Investment Advisory
+                    </option>
+                    <option value="investment-fund">Investment Fund</option>
+                    <option value="wealth-management">Wealth Management</option>
+                    <option value="equity-investment">Equity Investment</option>
+                    <option value="financial-management">
+                      Financial Management
+                    </option>
+                    <option value="fund-raising">Fund Raising</option>
+                    <option value="business-automation">
+                      Business Processes Automation
+                    </option>
+                    <option value="business-acquisition">
+                      Business Acquisition
+                    </option>
+                  </select>
+                </div>
+                <div class="space-y-2">
+                  <label for="message" class="block text-gray-700 font-medium"
+                    >Message <span class="text-red-500">*</span></label
+                  >
+                  <textarea
+                    id="message"
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-300 transform hover:scale-105"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to Grow Your Wealth?</h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">
+          Schedule a free consultation with one of our financial experts today.
+        </p>
+        <a
+          href="#contact"
+          class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+        >
+          Get Started Now
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div
+              class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl mb-4"
+            >
+              NC
+            </div>
+            <p class="text-gray-400 mb-4">
+              Helping everybody achieve financial well-being through strategic
+              investment management.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/company/nadis-capital/"
+                target="_blank"
+                class="text-gray-400 hover:text-white transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Investment Management</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Wealth Management</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Financial Advisory</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Business Acquisition</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Press</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Disclosures</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Regulatory Information</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 Nadis Capital. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="javascript/index.js"></script>
+  </body>
+</html>

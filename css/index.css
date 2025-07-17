@@ -1,4 +1,26 @@
 /* Extracted CSS from <style> tag in index.html */
+/* Style for collapsed nav */
+#collapsed-nav {
+  transition: transform 0.3s ease-in-out;
+}
+
+#collapsed-nav.translate-up {
+  transform: translateY(-100%);
+}
+
+#collapsed-nav.translate-down {
+  transform: translateY(0);
+}
+
+nav {
+  transition: transform 0.3s ease-in-out;
+}
+/* Hide collapsed nav on mobile */
+@media (max-width: 768px) {
+  #collapsed-nav {
+    display: none !important;
+  }
+}
 .hero-gradient {
   background: linear-gradient(
       to right,
@@ -108,4 +130,30 @@
   width: auto;
   height: auto;
   object-fit: contain; /* Ensures image scales nicely */
+}
+
+/* === DARK BACKGROUND OVERRIDE === */
+/* Only change global background and base containers */
+
+/* body {
+  background-color: #000000 !important;
+}
+.container {
+  background-color: #0b0b0c !important;
+}
+.container-fluid {
+  background-color: #0b0b0c !important;
+} */
+
+.grey-gradient {
+  background: linear-gradient(
+    to bottom,
+    #f3f4f6,
+    #e5e7eb
+  ); /* Light grey gradient */
+}
+
+.container,
+.container-fluid {
+  background-color: transparent !important;
 }

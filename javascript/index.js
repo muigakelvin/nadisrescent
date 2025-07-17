@@ -368,3 +368,203 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+// Only run this logic on desktop
+function isDesktop() {
+  return window.innerWidth > 768;
+}
+
+let lastScrollY = window.scrollY;
+const fullNav = document.querySelector("nav");
+const collapsedNav = document.getElementById("collapsed-nav");
+const activeSectionName = document.getElementById("active-section-name");
+const toggleFullMenuBtn = document.getElementById("toggle-full-menu");
+
+// Scroll handler
+window.addEventListener("scroll", () => {
+  if (!isDesktop()) return;
+
+  const currentScrollY = window.scrollY;
+
+  // Determine direction
+  if (currentScrollY > lastScrollY && currentScrollY > 50) {
+    // Scrolling down - hide full nav, show collapsed
+    fullNav.style.transform = "translateY(-100%)";
+    collapsedNav.classList.remove("hidden", "translate-up");
+    collapsedNav.classList.add("translate-down");
+  } else {
+    // Scrolling up - show full nav, hide collapsed
+    fullNav.style.transform = "translateY(0)";
+    collapsedNav.classList.remove("translate-down");
+    collapsedNav.classList.add("translate-up");
+  }
+
+  lastScrollY = currentScrollY;
+
+  // Highlight active section
+  highlightActiveSection();
+});
+
+function highlightActiveSection() {
+  const sections = [
+    { id: "home", element: document.querySelector(".hero-gradient") },
+    { id: "about", element: document.getElementById("about") },
+    { id: "services", element: document.getElementById("services") },
+    { id: "contact", element: document.getElementById("contact") },
+  ];
+
+  const scrollPosition = window.scrollY + 100;
+  let activeSection = "home";
+
+  sections.forEach((section) => {
+    if (section.element) {
+      const offsetTop = section.element.offsetTop;
+      const offsetHeight = section.element.offsetHeight;
+      if (
+        scrollPosition >= offsetTop &&
+        scrollPosition < offsetTop + offsetHeight
+      ) {
+        activeSection = section.id;
+      }
+    }
+  });
+
+  // Update collapsed nav label
+  activeSectionName.textContent = capitalizeFirstLetter(activeSection);
+
+  // Update nav links
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    if (link.dataset.section === activeSection) {
+      link.classList.remove("text-gray-600");
+      link.classList.add("text-blue-600");
+    } else {
+      link.classList.remove("text-blue-600");
+      link.classList.add("text-gray-600");
+    }
+  });
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Toggle full menu from collapsed nav
+toggleFullMenuBtn.addEventListener("click", () => {
+  if (!isDesktop()) return;
+  fullNav.classList.toggle("hidden");
+});
+
+// Close full menu if clicked outside
+document.addEventListener("click", (e) => {
+  if (!isDesktop()) return;
+  if (!e.target.closest("nav") && !e.target.closest("#toggle-full-menu")) {
+    fullNav.classList.add("hidden");
+  }
+});
+
+// Initial call
+highlightActiveSection();
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
+// (function () {
+//   emailjs.init("ha0AZRjteLYVFd7q1"); // Replace with your actual public key
+// })();
+
+// document.querySelector("form").addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   const firstName = document.getElementById("first-name").value.trim();
+//   const lastName = document.getElementById("last-name").value.trim();
+//   const name = `${firstName} ${lastName}`;
+//   const email = document.getElementById("email").value.trim();
+//   const phone = document.getElementById("phone").value.trim();
+//   const service = document.getElementById("service").value;
+//   const message = document.getElementById("message").value.trim();
+
+//   if (!firstName || !lastName || !email || !service || !message) {
+//     alert("Please fill in all required fields.");
+//     return;
+//   }
+
+//   const serviceID = "service_td095q6";
+//   const templateID = "template_ohd2c7m";
+
+//   emailjs
+//     .send(serviceID, templateID, {
+//       name: name,
+//       email: email,
+//       phone: phone,
+//       service: service,
+//       message: message,
+//     })
+//     .then(() => {
+//       alert("Thank you! Your message has been sent.");
+//       document.querySelector("form").reset();
+//     })
+//     .catch((err) => {
+//       alert("Oops! Something went wrong. Please try again.");
+//       console.error(err);
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("ha0AZRjteLYVFd7q1");
+
+  const contactForm = document.getElementById("contact-form"); // Use ID
+  if (!contactForm) return;
+
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById("first-name").value.trim();
+    const lastName = document.getElementById("last-name").value.trim();
+    const name = `${firstName} ${lastName}`;
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!firstName || !lastName || !email || !service || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const serviceID = "service_td095q6";
+    const templateID = "template_ohd2c7m";
+
+    const templateParams = {
+      name: name,
+      email: email,
+      phone: phone,
+      service: service,
+      message: message,
+    };
+
+    console.log("Sending email with params:", templateParams); // Debug log
+
+    emailjs
+      .send(serviceID, templateID, templateParams)
+      .then(() => {
+        alert("Thank you! Your message has been sent.");
+        contactForm.reset();
+      })
+      .catch((err) => {
+        alert("Oops! Something went wrong. Please try again.");
+        console.error("EmailJS Error:", err); // Log full error
+      });
+  });
+});

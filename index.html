@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nadis Capital | Investment Management Firm</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -16,6 +17,34 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Collapsed Navigation Bar (for desktop only) -->
+    <div
+      id="collapsed-nav"
+      class="fixed top-0 left-0 w-full bg-white shadow-md z-40 hidden h-16 flex items-center justify-between px-4 md:flex"
+    >
+      <!-- Hamburger on Left -->
+      <button id="toggle-full-menu" class="text-gray-600 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+
+      <!-- Section Name Centered -->
+      <span
+        id="active-section-name"
+        class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold text-blue-600"
+        >Home</span
+      >
+
+      <!-- Logo on Right -->
+      <div
+        class="logo-container h-10 w-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+      >
+        <img
+          src="./images/nadislogo.png"
+          alt="Nadis Capital Logo"
+          class="h-full w-full object-contain"
+        />
+      </div>
+    </div>
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,13 +53,13 @@
             <div class="mr-10 flex items-center space-x-8">
               <a
                 href="#"
-                class="nav-link text-blue-600 font-medium hover:text-blue-800 transition"
+                class="nav-link text-blue-900 font-large hover:text-blue-800 transition"
                 data-section="home"
                 >Home</a
               >
               <a
                 href="#about"
-                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
+                class="nav-link text-gray-600 hover:text-blue-600 font-large transition"
                 data-section="about"
                 >About</a
               >
@@ -224,7 +253,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="about" class="py-20 grey-gradient relative overflow-hidden">
       <div
         class="absolute -left-20 top-1/4 w-60 h-60 rounded-full bg-blue-100 opacity-40"
       ></div>
@@ -252,7 +281,7 @@
           <div
             class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <div class="text-blue-600 mb-4">
+            <div class="text-blue-900 mb-4">
               <i class="fas fa-user text-4xl"></i>
             </div>
             <h3 class="text-xl font-semibold mb-3">Individuals</h3>
@@ -264,7 +293,7 @@
           <div
             class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <div class="text-blue-600 mb-4">
+            <div class="text-blue-900 mb-4">
               <i class="fas fa-users text-4xl"></i>
             </div>
             <h3 class="text-xl font-semibold mb-3">Families</h3>
@@ -275,7 +304,7 @@
           <div
             class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <div class="text-blue-600 mb-4">
+            <div class="text-blue-900 mb-4">
               <i class="fas fa-dollar-sign text-4xl"></i>
             </div>
             <h3 class="text-xl font-semibold mb-3">High Value Investors</h3>
@@ -287,7 +316,7 @@
           <div
             class="about-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <div class="text-blue-600 mb-4">
+            <div class="text-blue-900 mb-4">
               <i class="fas fa-briefcase text-4xl"></i>
             </div>
             <h3 class="text-xl font-semibold mb-3">Institutions</h3>
@@ -301,7 +330,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">Our Services</h2>
@@ -571,7 +600,7 @@
     </section>
 
     <!-- Additional Services Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">
@@ -783,7 +812,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">
@@ -872,7 +901,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">Contact Us</h2>
@@ -885,7 +914,7 @@
         <div class="bg-white rounded-xl shadow-xl overflow-hidden">
           <div class="md:flex">
             <div
-              class="md:w-1/2 bg-gradient-to-br from-blue-600 to-grey-900 text-white p-12 relative overflow-hidden"
+              class="md:w-1/2 bg-gradient-to-br from-blue-900 to-gray-900 text-white p-12 relative overflow-hidden"
             >
               <div
                 class="absolute -right-20 -top-20 w-40 h-40 rounded-full bg-blue-500 opacity-20"
@@ -903,9 +932,9 @@
                       <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div>
-                      <h4 class="font-semibold">Our Office</h4>
-                      <p class="text-blue-100">
-                        Rainbow Tower, 5th Floor, Muthithi Road.<br />Nairobi,Kenya
+                      <!-- <h4 class="font-semibold">Our Office</h4> -->
+                      <p class="text-gray-100">
+                        <!-- Rainbow Tower, 5th Floor, Muthithi Road.<br />Nairobi,Kenya -->
                       </p>
                     </div>
                   </div>
@@ -955,7 +984,7 @@
               </div>
             </div>
             <div class="md:w-1/2 p-12">
-              <form class="space-y-6">
+              <form id="contact-form" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                   <div class="space-y-2">
                     <label
@@ -1053,7 +1082,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="w-full bg-gradient-to-r from-blue-600 to-grey-600 text-white py-4 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-300 transform hover:scale-105"
+                  class="w-full bg-gradient-to-r from-blue-900 to-gray-600 text-white py-4 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-300 transform hover:scale-105"
                 >
                   Send Message
                 </button>
@@ -1066,7 +1095,7 @@
 
     <!-- CTA Section -->
     <section
-      class="py-16 bg-gradient-to-br from-blue-600 to-grey-900 text-black p-12 relative overflow-hidden"
+      class="py-16 bg-gradient-to-br from-blue-900 to-grey-800 text-black p-12 relative overflow-hidden"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold mb-6">Ready to Grow Your Wealth?</h2>
@@ -1090,7 +1119,11 @@
             <div
               class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl mb-4"
             >
-              NC
+              <img
+                src="./images/nadislogo.png"
+                alt="Nadis Capital Logo"
+                class="h-full w-full object-contain"
+              />
             </div>
             <p class="text-gray-400 mb-4">
               Helping everybody achieve financial well-being through strategic
@@ -1201,6 +1234,10 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js "
+    ></script>
     <script src="javascript/index.js"></script>
   </body>
 </html>

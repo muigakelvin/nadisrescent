@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       emailjs
-        .send("service_td095q6", "template_ohd2c7m", templateParams)
+        .send("service_td095q6", "template_jiokczq", templateParams)
         .then(() => {
           alert("Thank you! Your message has been sent.");
           contactForm.reset();

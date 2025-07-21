@@ -1,26 +1,22 @@
-/* Extracted CSS from <style> tag in index.html */
-/* Style for collapsed nav */
+/* === Two-Tier Navigation: Lower Tier (was collapsed nav) === */
 #collapsed-nav {
-  transition: transform 0.3s ease-in-out;
-}
-
-#collapsed-nav.translate-up {
-  transform: translateY(-100%);
-}
-
-#collapsed-nav.translate-down {
-  transform: translateY(0);
+  /* Always visible, no animation */
+  transform: translateY(0) !important;
+  transition: none !important;
 }
 
 nav {
   transition: transform 0.3s ease-in-out;
 }
+
 /* Hide collapsed nav on mobile */
 @media (max-width: 768px) {
   #collapsed-nav {
     display: none !important;
   }
 }
+
+/* === Hero Section === */
 .hero-gradient {
   background: linear-gradient(
       to right,
@@ -31,14 +27,19 @@ nav {
   background-size: cover;
   background-position: center;
 }
+
+/* === Service Cards Hover Effects === */
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* === Fade-in Animation === */
 .fade-in {
   animation: fadeIn 1s ease-in-out;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -47,54 +48,74 @@ nav {
     opacity: 1;
   }
 }
+
+/* === Background Pattern === */
 .finance-pattern {
-  background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-  /* background-color: #1e40af; */
+  background-image: url(" https://www.transparenttextures.com/patterns/inspiration-geometry.png ");
   background-color: #0b0b0c;
 }
+
+/* === About Cards === */
 .about-card {
   transition: all 0.3s ease;
 }
+
 .about-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* === Feature Icons === */
 .feature-icon {
-  /* background: linear-gradient(135deg, #656e77, #59626a); */
   background: linear-gradient(135deg, #08447f, #59626a);
 }
+
+/* === Hover Glow Effect === */
 .glow-on-hover:hover {
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
+
+/* === Gradient Text === */
 .gradient-text {
   background: linear-gradient(90deg, #1d4ed8, #3b82f6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+/* === Expandable Content (Service Cards) === */
 .expandable-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
-  /* display: block; */
 }
+
 .expandable-content.expanded {
   max-height: 2000px;
 }
+
+/* === Learn More Button === */
 .learn-more-btn {
   transition: all 0.3s ease;
 }
+
 .learn-more-btn:hover {
   transform: translateY(-2px);
 }
+
+/* === Icon Rotation for Expandable Content === */
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+/* === Custom Font for Logo Text === */
 .script-bold {
   font-family: "Brush Script MT", cursive;
   font-weight: bold;
   font-style: italic;
 }
+
+/* === Pulse Glow Animation for Cards === */
 @keyframes pulse-glow {
   0%,
   100% {
@@ -104,56 +125,50 @@ nav {
     box-shadow: 0 0 20px 10px rgba(147, 197, 253, 0);
   }
 }
+
 .animate-pulse {
   animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-.logo-container {
-  /* background: linear-gradient(135deg, #1d4ed8, #3b82f6); */
-  background: linear-gradient(135deg, #040404, #0c0c0c);
 
+/* === Logo Container === */
+.logo-container {
+  background: linear-gradient(135deg, #040404, #0c0c0c);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-/* .logo-container {
-  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem; 
-  height: auto; 
-}  */
 
 .logo-container img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain; /* Ensures image scales nicely */
+  object-fit: contain;
 }
 
-/* === DARK BACKGROUND OVERRIDE === */
-/* Only change global background and base containers */
-
-/* body {
-  background-color: #000000 !important;
-}
-.container {
-  background-color: #0b0b0c !important;
-}
-.container-fluid {
-  background-color: #0b0b0c !important;
-} */
-
+/* === Grey Gradient Background === */
 .grey-gradient {
-  background: linear-gradient(
-    to bottom,
-    #f3f4f6,
-    #e5e7eb
-  ); /* Light grey gradient */
+  background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
 }
 
+/* === Transparent Background for Container === */
 .container,
 .container-fluid {
   background-color: transparent !important;
+}
+
+/* === Optional: Improve Expandable Card Layouts === */
+.service-card {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card .expandable-content {
+  position: relative;
+  z-index: 0;
+}
+
+/* === Optional: Fix for Safari and Older Browsers === */
+@media (prefers-reduced-motion: no-preference) {
+  .expandable-content {
+    scroll-behavior: smooth;
+  }
 }

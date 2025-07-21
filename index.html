@@ -6,14 +6,14 @@
     <link rel="icon" type="image/png" href="./images/nadislogo.png" />
     <title>Nadis Capital | Investment Management Firm</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com "></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css "
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper @11/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="css/index.css" />
     <script
@@ -22,49 +22,22 @@
     ></script>
   </head>
   <body class="font-sans antialiased text-gray-800 bg-gray-50">
-    <!-- Collapsed Navigation Bar (for desktop only) -->
-    <div
-      id="collapsed-nav"
-      class="fixed top-0 left-0 w-full bg-white shadow-md z-40 hidden h-16 flex items-center justify-between px-4 md:flex"
-    >
-      <!-- Hamburger on Left -->
-      <button id="toggle-full-menu" class="text-gray-600 focus:outline-none">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-
-      <!-- Section Name Centered -->
-      <span
-        id="active-section-name"
-        class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold text-blue-600"
-        >Home</span
-      >
-
-      <!-- Logo on Right -->
-      <div
-        class="logo-container h-10 w-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
-      >
-        <img
-          src="./images/nadislogo.png"
-          alt="Nadis Capital Logo"
-          class="h-full w-full object-contain"
-        />
-      </div>
-    </div>
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Combined Two-Tier Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+      <!-- Upper Tier: Main Navigation -->
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
           <div class="hidden md:block">
             <div class="mr-10 flex items-center space-x-8">
               <a
                 href="#"
-                class="nav-link text-blue-900 font-large hover:text-blue-800 transition"
+                class="nav-link text-blue-900 font-medium hover:text-blue-600 transition"
                 data-section="home"
                 >Home</a
               >
               <a
                 href="#about"
-                class="nav-link text-gray-600 hover:text-blue-600 font-large transition"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
                 data-section="about"
                 >About</a
               >
@@ -74,7 +47,9 @@
                 >
                   Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
                 </button>
+
                 <div
+                  id="mobile-services-menu"
                   class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                 >
                   <a
@@ -123,6 +98,7 @@
               >
             </div>
           </div>
+
           <div class="flex-shrink-0 flex items-center">
             <div
               class="logo-container h-12 w-12 rounded-lg flex items-center justify-center text-white font-bold text-xl transform hover:rotate-6 transition duration-300"
@@ -137,16 +113,22 @@
               >Nadis Capital</span
             >
           </div>
-          <div class="md:hidden">
-            <button
-              id="mobile-menu-button"
-              class="text-gray-600 hover:text-blue-600 focus:outline-none"
-            >
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-          </div>
         </div>
+      </nav>
+
+      <!-- Lower Tier: Active Section Name -->
+      <div
+        id="collapsed-nav"
+        class="bg-white h-16 flex items-center justify-center border-t border-gray-200"
+      >
+        <span id="active-section-name" class="text-lg font-bold text-blue-600"
+          >Home</span
+        >
       </div>
+    </header>
+
+    <!-- Mobile Menu (Unchanged) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
       <!-- Mobile menu -->
       <div
         id="mobile-menu"
@@ -224,7 +206,6 @@
         </div>
       </div>
     </nav>
-
     <!-- Hero Section -->
     <section class="hero-gradient text-white min-h-screen flex items-center">
       <div
@@ -685,7 +666,7 @@
                 <div class="mt-4">
                   <button
                     class="learn-more-btn flex items-center text-blue-600 font-medium"
-                    onclick="additionalService('fund-raising-content', 'fund-raising-icon')"
+                    onclick="toggleExpand('fund-raising-content', 'fund-raising-icon')"
                   >
                     Learn More
                     <i
@@ -734,7 +715,7 @@
                 <div class="mt-4">
                   <button
                     class="learn-more-btn flex items-center text-blue-600 font-medium"
-                    onclick="additionalService('business-automation-content', 'business-automation-icon')"
+                    onclick="toggleExpand('business-automation-content', 'business-automation-icon')"
                   >
                     Learn More
                     <i
@@ -783,7 +764,7 @@
                 <div class="mt-4">
                   <button
                     class="learn-more-btn flex items-center text-blue-600 font-medium"
-                    onclick="additionalService('business-acquisition-content', 'business-acquisition-icon')"
+                    onclick="toggleExpand('business-acquisition-content', 'business-acquisition-icon')"
                   >
                     Learn More
                     <i

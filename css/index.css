@@ -172,3 +172,20 @@ nav {
     scroll-behavior: smooth;
   }
 }
+
+/* === MOBILE NAVIGATION === */
+
+/* Hide lower tier nav on mobile */
+@media (max-width: 768px) {
+  #collapsed-nav {
+    display: none !important;
+  }
+
+  .logo-container {
+    margin-right: 0.5rem;
+  }
+
+  #mobile-menu-button {
+    display: block;
+  }
+}

@@ -23,94 +23,145 @@
   </head>
   <body class="font-sans antialiased text-gray-800 bg-gray-50">
     <!-- Combined Two-Tier Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-lg">
+    <header class="sticky top-0 z-50 bg-white">
       <!-- Upper Tier: Main Navigation -->
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20 items-center">
-          <div class="hidden md:block">
-            <div class="mr-10 flex items-center space-x-8">
+      <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16 items-center">
+            <!-- Logo (Left-aligned on mobile) -->
+            <div class="flex items-center">
+              <div
+                class="logo-container h-10 w-10 rounded-lg flex items-center justify-center text-white font-bold text-xl"
+              >
+                <img
+                  src="./images/nadislogo.png"
+                  alt="Nadis Capital Logo"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <span class="ml-3 text-xl font-semibold text-black script-bold"
+                >Nadis Capital</span
+              >
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex md:items-center md:space-x-8">
               <a
                 href="#"
-                class="nav-link text-blue-900 font-medium hover:text-blue-600 transition"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium"
                 data-section="home"
                 >Home</a
               >
               <a
                 href="#about"
-                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium"
                 data-section="about"
                 >About</a
               >
               <div class="relative group">
                 <button
-                  class="nav-link text-gray-600 hover:text-blue-600 font-medium transition flex items-center"
+                  class="nav-link text-gray-600 hover:text-blue-600 font-medium flex items-center"
                 >
                   Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
                 </button>
-
                 <div
-                  id="mobile-services-menu"
                   class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                 >
                   <a
                     href="#services?service=all"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
                     data-service="all"
-                    >All Services</a
+                    >All</a
                   >
                   <a
                     href="#services?service=investment-decisions"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
                     data-service="investment-decisions"
                     >Investment Decisions</a
                   >
                   <a
-                    href="#services?service=investment-management"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                    data-service="investment-management"
-                    >Investment Management</a
-                  >
-                  <a
-                    href="#services?service=investment-advisory"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                    data-service="investment-advisory"
-                    >Investment Advisory</a
-                  >
-                  <a
-                    href="#services?service=investment-fund"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                    data-service="investment-fund"
-                    >Investment Fund</a
-                  >
-                  <a
-                    href="#services?service=wealth-management"
-                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                    data-service="wealth-management"
-                    >Wealth Management</a
+                    href="#services?service=financial-management"
+                    class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
+                    data-service="financial-management"
+                    >Financial Management</a
                   >
                 </div>
               </div>
               <a
                 href="#contact"
-                class="nav-link text-gray-600 hover:text-blue-600 font-medium transition"
+                class="nav-link text-gray-600 hover:text-blue-600 font-medium"
                 data-section="contact"
                 >Contact</a
               >
             </div>
-          </div>
 
-          <div class="flex-shrink-0 flex items-center">
-            <div
-              class="logo-container h-12 w-12 rounded-lg flex items-center justify-center text-white font-bold text-xl transform hover:rotate-6 transition duration-300"
-            >
-              <img
-                src="./images/nadislogo.png"
-                alt="Nadis Capital Logo"
-                class="h-full w-full object-contain"
-              />
+            <!-- Hamburger Menu Button (Visible only on mobile) -->
+            <div class="md:hidden flex items-center">
+              <button
+                id="mobile-menu-button"
+                class="text-gray-600 hover:text-blue-600 focus:outline-none"
+              >
+                <i class="fas fa-bars text-xl"></i>
+              </button>
             </div>
-            <span class="ml-3 text-2xl font-semibold text-black-800 script-bold"
-              >Nadis Capital</span
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-white shadow-lg absolute w-full z-50"
+        >
+          <div class="px-4 pt-2 pb-4 space-y-2">
+            <a
+              href="#"
+              class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:bg-blue-50"
+              data-section="home"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+              data-section="about"
+              >About</a
+            >
+            <div class="px-3 py-2">
+              <button
+                onclick="toggleMobileServices()"
+                class="w-full text-left flex justify-between items-center text-base font-medium text-gray-600 hover:bg-blue-50 rounded-md px-3 py-2"
+              >
+                Services
+                <i
+                  id="mobile-services-icon"
+                  class="fas fa-chevron-down ml-1 text-xs transition-transform"
+                ></i>
+              </button>
+              <div id="mobile-services-menu" class="hidden pl-4 mt-1 space-y-1">
+                <a
+                  href="#services?service=all"
+                  class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
+                  data-service="all"
+                  >All Services</a
+                >
+                <a
+                  href="#services?service=investment-decisions"
+                  class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
+                  data-service="investment-decisions"
+                  >Investment Decisions</a
+                >
+                <a
+                  href="#services?service=financial-management"
+                  class="block px-4 py-2 text-gray-700 hover:bg-blue-50"
+                  data-service="financial-management"
+                  >Financial Management</a
+                >
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50"
+              data-section="contact"
+              >Contact</a
             >
           </div>
         </div>

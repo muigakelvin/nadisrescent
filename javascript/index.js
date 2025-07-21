@@ -22,6 +22,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // =============== MOBILE SERVICES SUBMENU ===============
+  function toggleMobileServices() {
+    const menu = document.getElementById("mobile-services-menu");
+    const icon = document.getElementById("mobile-services-icon");
+    if (menu && icon) {
+      menu.classList.toggle("hidden");
+      icon.classList.toggle("rotate-180");
+    } else {
+      console.error("Could not find mobile services menu or icon");
+    }
+  }
+
+  const servicesToggle = document.getElementById("mobile-services-toggle");
+  if (servicesToggle) {
+    servicesToggle.addEventListener("click", toggleMobileServices);
+  }
+
   // =============== ACTIVE SECTION HIGHLIGHTING ===============
   const activeSectionName = document.getElementById("active-section-name");
 
@@ -49,12 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // ✅ Update lower tier section name immediately
     if (activeSectionName) {
       activeSectionName.textContent = capitalizeFirstLetter(activeSection);
     }
 
-    // Update nav links
     document.querySelectorAll(".nav-link").forEach((link) => {
       if (link.dataset.section === activeSection) {
         link.classList.remove("text-gray-600");
@@ -70,12 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  // ✅ Update section name immediately on scroll
   window.addEventListener("scroll", function () {
     highlightActiveSection();
   });
 
-  // Initial call
   highlightActiveSection();
 
   // =============== SERVICE SUBMENU CLICK HANDLER ===============
@@ -83,8 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const serviceId = this.getAttribute("data-service");
-      window.location.hash = `services?service=${serviceId}`;
-      handleServiceNavigation(); // Trigger immediately
+      document
+        .querySelector("#services")
+        ?.scrollIntoView({ behavior: "smooth" });
+      window.highlightService(serviceId);
     });
   });
 
@@ -106,27 +121,40 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeObserver.observe(element);
   });
 
-  // =============== SMOOTH SCROLLING ===============
+  // =============== SMOOTH SCROLLING (Updated with Fix) ===============
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
-      const targetElement = document.querySelector(targetId);
+      const href = this.getAttribute("href");
+
+      if (href === "#") return;
+
+      const baseId = href.split("?")[0]; // e.g. "#services"
+      const targetElement = document.querySelector(baseId);
       if (targetElement) {
         window.scrollTo({
           top: targetElement.offsetTop - 80,
           behavior: "smooth",
         });
       }
+
+      // Handle inline service highlighting if present
+      if (href.startsWith("#services?service=")) {
+        const serviceId = href.split("=")[1];
+        if (serviceId) {
+          window.highlightService(serviceId);
+        }
+      }
     });
   });
 
-  // =============== HANDLE SERVICE NAVIGATION FROM URL ===============
+  // =============== HANDLE SERVICE NAVIGATION FROM URL (now enabled) ===============
   function handleServiceNavigation() {
     if (window.location.hash.startsWith("#services?service=")) {
       const serviceId = window.location.hash.split("=")[1];
-      highlightService(serviceId);
+      if (serviceId) {
+        highlightService(serviceId);
+      }
     }
   }
 
@@ -140,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!content) return;
 
-    // Close all other expanded content
     document.querySelectorAll(".expandable-content").forEach((el) => {
       if (el !== content) el.classList.remove("expanded");
     });
@@ -152,11 +179,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Toggle selected content
     content.classList.toggle("expanded");
     if (icon) icon.classList.toggle("rotate-180");
 
-    // Add visual effects
     const cardElem = content.closest(".service-card");
     if (cardElem) {
       cardElem.classList.add(
@@ -180,23 +205,10 @@ document.addEventListener("DOMContentLoaded", function () {
   window.highlightService = function (serviceId) {
     if (!serviceId) return;
 
-    // Remove highlight from all service links
-    document.querySelectorAll("[data-service]").forEach((link) => {
-      link.classList.remove("bg-blue-50", "text-blue-600", "font-semibold");
-    });
-
-    // Highlight the selected service link
-    const activeLink = document.querySelector(`[data-service="${serviceId}"]`);
-    if (activeLink) {
-      activeLink.classList.add("bg-blue-50", "text-blue-600", "font-semibold");
-    }
-
-    // Try to find the main service card
     let card = document.getElementById(serviceId);
     let content = document.getElementById(serviceId);
     let icon = document.getElementById(`${serviceId}-icon`);
 
-    // Fallback to additional service card
     if (!card) {
       card = document.getElementById(`${serviceId}-content`);
       content = document.getElementById(`${serviceId}-content`);
@@ -208,19 +220,15 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Scroll to services section
     document.getElementById("services").scrollIntoView({ behavior: "smooth" });
 
-    // Scroll to the specific card after a short delay
     setTimeout(() => {
       card.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      // Expand content
       if (content) {
         content.classList.add("expanded");
         if (icon) icon.classList.add("rotate-180");
 
-        // Add visual effects
         const cardElem = card.classList.contains("service-card")
           ? card
           : card.closest(".service-card");
@@ -234,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
           );
         }
 
-        // Remove effects after 3s
         setTimeout(() => {
           if (cardElem) {
             cardElem.classList.remove(

@@ -694,7 +694,7 @@
     </section>
 
     <!-- Additional Services Section -->
-    <section class="py-20 grey-gradient">
+    <section id="add-services" class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">
@@ -906,7 +906,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 grey-gradient">
+    <section id="why" class="py-20 grey-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-blue-900 mb-4">
@@ -1078,7 +1078,7 @@
               </div>
             </div>
             <div class="md:w-1/2 p-12">
-              <form id="contact-form" class="space-y-6">
+              <form id="contactForm" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                   <div class="space-y-2">
                     <label
@@ -1175,10 +1175,14 @@
                   ></textarea>
                 </div>
                 <button
+                  id="contact-form-submit"
                   type="submit"
                   class="w-full bg-gradient-to-r from-blue-900 to-gray-600 text-white py-4 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-300 transform hover:scale-105"
                 >
-                  Send Message
+                  <span id="submit-text">Send Message</span>
+                  <span id="submit-loader" class="hidden ml-2 typing-dots"
+                    >...</span
+                  >
                 </button>
               </form>
             </div>

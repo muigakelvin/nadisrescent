@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // =============== MOBILE MENU ===============
+  emailjs.init("AfF1csZ1lI-jXFS5w");
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -47,6 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
       { id: "home", element: document.querySelector(".hero-gradient") },
       { id: "about", element: document.getElementById("about") },
       { id: "services", element: document.getElementById("services") },
+      { id: "services", element: document.getElementById("add-services") },
+      {
+        id: "why choose nadis us",
+        element: document.getElementById("why"),
+      },
       { id: "contact", element: document.getElementById("contact") },
     ];
 
@@ -303,42 +309,62 @@ document.addEventListener("DOMContentLoaded", function () {
     .forEach((el) => statsObserver.observe(el));
 
   // =============== EMAILJS CONTACT FORM ===============
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    emailjs.init("ha0AZRjteLYVFd7q1");
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const firstName = document.getElementById("first-name").value.trim();
-      const lastName = document.getElementById("last-name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const service = document.getElementById("service").value;
-      const message = document.getElementById("message").value.trim();
+    const submitBtn = document.getElementById("contact-form-submit");
+    const submitText = document.getElementById("submit-text");
+    const submitLoader = document.getElementById("submit-loader");
 
-      if (!firstName || !lastName || !email || !service || !message) {
-        alert("Please fill in all required fields.");
-        return;
-      }
+    // ✅ Disable the button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-70", "cursor-not-allowed");
 
-      const templateParams = {
-        name: `${firstName} ${lastName}`,
-        email,
-        phone,
-        service,
-        message,
-      };
+    submitText.textContent = "Sending";
+    submitLoader.classList.remove("hidden");
 
-      emailjs
-        .send("service_td095q6", "template_jiokczq", templateParams)
-        .then(() => {
-          alert("Thank you! Your message has been sent.");
-          contactForm.reset();
-        })
-        .catch((err) => {
-          alert("Oops! Something went wrong. Please try again.");
-          console.error("EmailJS Error:", err);
-        });
-    });
-  }
+    const firstName = document.getElementById("first-name").value.trim();
+    const lastName = document.getElementById("last-name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!firstName || !lastName || !email || !service || !message) {
+      alert("Please fill in all required fields.");
+
+      // ✅ Re-enable the button if validation fails
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+      submitLoader.classList.add("hidden");
+
+      return;
+    }
+
+    const templateParams = {
+      name: `${firstName} ${lastName}`,
+      email,
+      phone,
+      service,
+      message,
+    };
+
+    emailjs
+      .send("service_zozlomf", "template_nmjkyef", templateParams)
+      .then(() => {
+        alert("Thank you! Your message has been sent.");
+        contactForm.reset();
+      })
+      .catch((err) => {
+        alert("Oops! Something went wrong. Please try again.");
+        console.error("EmailJS Error:", err);
+      })
+      .finally(() => {
+        // ✅ Always re-enable the button after submission
+        submitText.textContent = "Send Message";
+        submitLoader.classList.add("hidden");
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+      });
+  });
 });
